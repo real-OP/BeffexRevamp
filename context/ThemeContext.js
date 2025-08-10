@@ -1,6 +1,4 @@
 import { createContext } from 'react';
-
-
 import { Appearance } from 'react-native';
 import { colors } from '../constants/colors';
 

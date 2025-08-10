@@ -1,3 +1,4 @@
+import { ThemeContext } from "@/context/ThemeContext";
 import Entypo from '@expo/vector-icons/Entypo';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -9,11 +10,11 @@ export default function TabsLayout() {
   const {theme} = useContext(ThemeContext);
 
   return (
-    <Tabs screenOptions={{tabBarActiveTintColor:"black"}}>
-      <Tabs.Screen name="home" options={{title: "Home", tabBarIcon: ()=>(<FontAwesome5 name="home" size={24} color={focused ? theme.iconActiveColor : iconInactiveColor} />)}} />
-      <Tabs.Screen name="addtask" options={{title: "Add", tabBarIcon: ()=>(<Entypo name="add-to-list" size={24} color="black" />)}} />
-      <Tabs.Screen name="progress" options={{title: "Progress" , tabBarIcon: ()=>(<MaterialCommunityIcons name="progress-star" size={24} color="black" />)}} />
-      <Tabs.Screen name="settings" options={{title: "Settings" , tabBarIcon: ()=>(<Ionicons name="settings-sharp" size={24} color="black" />)}} />
+    <Tabs screenOptions={{tabBarActiveTintColor: theme.iconActiveColor , tabBarInactiveTintColor: theme.iconInactiveColor}}>
+      <Tabs.Screen name="home" options={{title: "Home", tabBarIcon: ({color})=>(<FontAwesome5 name="home" size={24} color={color} />)}} />
+      <Tabs.Screen name="addtask" options={{title: "Add", tabBarIcon: ({color})=>(<Entypo name="add-to-list" size={24} color={color} />)}} />
+      <Tabs.Screen name="progress" options={{title: "Progress" , tabBarIcon: ({color})=>(<MaterialCommunityIcons name="progress-star" size={24} color={color} />)}} />
+      <Tabs.Screen name="settings" options={{title: "Settings" , tabBarIcon: ({color})=>(<Ionicons name="settings-sharp" size={24} color={color} />)}} />
     </Tabs>
   )
 }
