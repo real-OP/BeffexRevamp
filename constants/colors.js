@@ -9,6 +9,8 @@ export const colors = {
         iconActiveColor: '#9c27b0',
         iconInactiveColor: '#000000',
         secondaryContrastText: '#ffffff',
+        dividerColor: 'rgba(213, 212, 212, 0.66)',
+
     },
     dark: {
         textColor: '#ffffff',
