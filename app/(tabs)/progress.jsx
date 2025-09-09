@@ -19,7 +19,10 @@ export default function StatsScreen() {
             title="Daily Streak"
             titleVariant="titleMedium"
             titleStyle={styles.title}
-            left={() => <FontAwesome5 name="fire" size={26} color='white' />}
+            left={() => (
+            <View style={[styles.glowEffect, styles.purpleGlow]}>
+              <FontAwesome5 name="fire" size={26} color='white' />
+            </View>)}
             leftStyle={{ marginRight: 1 }}
           />
         </Card>
@@ -29,7 +32,10 @@ export default function StatsScreen() {
             title="Best Streak"
             titleVariant="titleMedium"
             titleStyle={styles.title}
-            left={() => <Foundation name="target" size={28} color='white' />}
+            left={() => (
+              <View style={[styles.glowEffect, styles.blueGlow]}>
+                <Foundation name="target" size={28} color='white'/>
+              </View>)}
             leftStyle={{ marginRight: 1 }}
           />
         </Card>
@@ -42,7 +48,9 @@ export default function StatsScreen() {
           titleVariant="titleMedium"
           titleStyle={styles.title}
           left={() => (
-            <MaterialCommunityIcons name="progress-star" size={26} color='white' />
+            <View style={[styles.glowEffect, styles.greenGlow]}>
+              <MaterialCommunityIcons name="progress-star" size={26} color='white' />
+            </View>
           )}
           leftStyle={{ marginRight: 1 }}
         />
@@ -84,5 +92,28 @@ function createStyles(theme, colorScheme) {
       color: "#ddd7d7ff",
       
     },
+    glowEffect: {
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      justifyContent: 'center',
+      alignItems: 'center',
+      shadowColor: '#52E09B',
+      shadowOffset: { width: 0, height: 0 },
+      shadowOpacity: 0.8,
+      shadowRadius: 8,
+      elevation: 6, // for Android glow
+    },
+    greenGlow: {
+      backgroundColor: '#52E09B',
+    },
+    purpleGlow: {
+       backgroundColor: '#B57EDC',
+    },
+    blueGlow: {
+      backgroundColor: '#5A94FF',
+    },
+
+
   });
 }
