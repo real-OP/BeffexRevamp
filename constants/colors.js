@@ -17,7 +17,7 @@ export const colors = {
         textColor: '#ffffff',
         secondaryTextColor: 'rgba(255, 255, 255, 0.7)',
         backgroundColor: 'rgb(23,32,40)',
-        paperColor: '#1e1e1e',
+        paperColor: 'rgb(37, 41, 54)',
         dividerColor: 'rgba(255, 255, 255, 0.12)',
         primaryColor: '#1976d2',
         primaryContrastText: '#ffffff',

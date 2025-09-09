@@ -7,7 +7,7 @@ import { Tabs } from "expo-router";
 import { useContext } from 'react';
 
 export default function TabsLayout() {
-  const {theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <Tabs screenOptions={{tabBarActiveTintColor: theme.iconActiveColor , tabBarInactiveTintColor: theme.iconInactiveColor}}>
