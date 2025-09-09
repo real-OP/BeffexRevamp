@@ -10,7 +10,10 @@ export const colors = {
         iconInactiveColor: '#000000',
         secondaryContrastText: '#ffffff',
         dividerColor: 'rgba(213, 212, 212, 0.66)',
-        
+        curStreakCardColor: '#733386ff',
+        highestStreakCardColor: '#1976d2ff',
+        tasksCompletedCardColor: '#3f9b3fff',
+
 
     },
     dark: {
@@ -25,6 +28,10 @@ export const colors = {
         secondaryContrastText: '#ffffff',
         iconActiveColor: '#9c27b0',
         iconInactiveColor: '#000000',
+        curStreakCardColor: '#733386ff',
+        highestStreakCardColor: '#1976d2ff',
+        tasksCompletedCardColor: '#3f9b3fff',
+
 
     }
 };
