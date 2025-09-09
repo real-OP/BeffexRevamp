@@ -1,76 +1,88 @@
-import { ThemeContext } from '@/context/ThemeContext';
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import Foundation from '@expo/vector-icons/Foundation';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { ThemeContext } from "@/context/ThemeContext";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import Foundation from "@expo/vector-icons/Foundation";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import React, { useContext } from "react";
+import { StyleSheet, View } from "react-native";
+import { Card } from "react-native-paper";
 
-import { useContext } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Card } from 'react-native-paper';
+export default function StatsScreen() {
+  const { theme, colorScheme } = useContext(ThemeContext);
+  const styles = createStyles(theme, colorScheme);
 
-export default function ProgressScreen(){
-    const { theme,colorScheme } = useContext(ThemeContext);
-    const styles = createStyles(theme , colorScheme)
+  return (
+    <View style={styles.container}>
+      {/* Row with two cards */}
+      <View style={styles.row}>
+        <Card style={[styles.card, { backgroundColor: theme.curStreakCardColor }]}>
+          <Card.Title
+            title="Daily Streak"
+            titleVariant="titleMedium"
+            titleStyle={styles.title}
+            left={() => <FontAwesome5 name="fire" size={26} color='white' />}
+            leftStyle={{ marginRight: 1 }}
+          />
+        </Card>
 
-    return(
-        <View style={styles.container}>
-            <View style = {{flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
-                <Card style={[styles.card ,styles.curstreakcard, {backgroundColor: theme.curStreakCardColor} ]}>
-                    <Card.Title titleStyle={{fontWeight: '600', color: '#ddd7d7ff'}} titleVariant="titleSmall" title="Current Streak" 
-                    left= {(props) => <FontAwesome5 name="fire" size={24} color={theme.textColor} />}/>
-                    <Card.Content>
-                    </Card.Content>
-                </Card>
-                <Card style={[styles.card ,styles.beststreakcard, {backgroundColor: theme.highestStreakCardColor} ]}>
-                    <Card.Title titleStyle={{fontWeight: '600', color: '#ddd7d7ff'}} titleVariant="titleSmall" title="Best Streak" 
-                    left= {(props)=><Foundation name="target" size={24} color={theme.textColor} /> }/>
-                    <Card.Content>
-                    </Card.Content>
-                </Card>
-            </View>
-            <View>
-                <Card style={[styles.card , {backgroundColor: theme.tasksCompletedCardColor} ]}>
-                    <Card.Title titleStyle={{fontWeight: '600', color: '#ddd7d7ff'}} titleVariant="titleSmall" title="Total Tasks Completed"
-                    left= {(props) => <MaterialCommunityIcons name="progress-star" size={24} color={theme.textColor} />}/>
-                    <Card.Content>
-                    </Card.Content>
-                </Card>
-            </View>
+        <Card style={[styles.card, { backgroundColor: theme.highestStreakCardColor }]}>
+          <Card.Title
+            title="Best Streak"
+            titleVariant="titleMedium"
+            titleStyle={styles.title}
+            left={() => <Foundation name="target" size={28} color='white' />}
+            leftStyle={{ marginRight: 1 }}
+          />
+        </Card>
+      </View>
 
-        </View>
-    );
-
-
-    
+      {/* Full width card */}
+      <Card style={[styles.fullCard, { backgroundColor: theme.tasksCompletedCardColor , borderWidth:2 , borderColor: theme.borderColor }]}>
+        <Card.Title
+          title="Total Tasks Completed"
+          titleVariant="titleMedium"
+          titleStyle={styles.title}
+          left={() => (
+            <MaterialCommunityIcons name="progress-star" size={26} color='white' />
+          )}
+          leftStyle={{ marginRight: 1 }}
+        />
+      </Card>
+    </View>
+  );
 }
 
 function createStyles(theme, colorScheme) {
-    return StyleSheet.create({
+  return StyleSheet.create({
     container: {
-      flexGrow: 1,
+      flex: 1,
       padding: 16,
       backgroundColor: theme.paperColor,
     },
+    row: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      marginBottom: 16,
+    },
     card: {
-      marginTop: '10%',
-      width: '90%',
-      maxWidth: 400,
-      padding: 16,
-      borderRadius: 10,
+      flex: 1,
+      marginHorizontal: 6,
+      borderRadius: 12,
       elevation: 3,
-      alignSelf: 'center',
-      backgroundColor: theme.backgroundColor,
+      paddingVertical: 8,
       borderWidth: 2,
-      borderColor: theme.dividerColor,
-
+      borderColor: theme.borderColor,
     },
-    curstreakcard:{
-        maxWidth: '50%',
-        marginRight: 10,
+    fullCard: {
+      width: "100%",
+      borderRadius: 12,
+      elevation: 3,
+      paddingVertical: 8,
+      marginTop: 8,
     },
-    beststreakcard:{
-        maxWidth: '50%',
-
+    title: {
+      fontWeight: "600",
+      color: "#ddd7d7ff",
+      
     },
-    taskcompletedcard:{ }
-})
+  });
 }

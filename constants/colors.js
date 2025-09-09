@@ -13,6 +13,7 @@ export const colors = {
         curStreakCardColor: '#733386ff',
         highestStreakCardColor: '#1976d2ff',
         tasksCompletedCardColor: '#3f9b3fff',
+       borderColor: 'rgba(213, 212, 212, 0.66)',
 
 
     },
@@ -31,6 +32,7 @@ export const colors = {
         curStreakCardColor: '#733386ff',
         highestStreakCardColor: '#1976d2ff',
         tasksCompletedCardColor: '#3f9b3fff',
+        borderColor: 'white',
 
 
     }
