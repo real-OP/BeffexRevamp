@@ -12,7 +12,7 @@ export default function TabsLayout() {
   return (
     <Tabs screenOptions={{tabBarActiveTintColor: theme.iconActiveColor , tabBarInactiveTintColor: theme.iconInactiveColor}}>
       <Tabs.Screen name="home" options={{title: "Home", tabBarIcon: ({color})=>(<FontAwesome5 name="home" size={24} color={color} />)}} />
-      <Tabs.Screen name="addtask" options={{title: "Add", tabBarIcon: ({color})=>(<Entypo name="add-to-list" size={24} color={color} />)}} />
+      <Tabs.Screen name="addtask" options={{title: "Add New Task", tabBarIcon: ({color})=>(<Entypo name="add-to-list" size={24} color={color} />)}} />
       <Tabs.Screen name="progress" options={{title: "Progress" , tabBarIcon: ({color})=>(<MaterialCommunityIcons name="progress-star" size={24} color={color} />)}} />
       <Tabs.Screen name="settings" options={{title: "Settings" , tabBarIcon: ({color})=>(<Ionicons name="settings-sharp" size={24} color={color} />)}} />
     </Tabs>
