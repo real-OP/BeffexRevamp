@@ -7,6 +7,7 @@ import { colors } from "@/constants/colors";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Feather from '@expo/vector-icons/Feather';
 import { useRouter } from 'expo-router';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 
 export default function HomeScreen(){
@@ -14,7 +15,8 @@ export default function HomeScreen(){
     const styles = createStyles(theme , colorScheme);
     const router = useRouter();
     return(
-        <ScrollView style={styles.container}>
+        <SafeAreaView style={{flex: 1,}}> 
+        <ScrollView style={styles.container} contentContainerStyle={{paddingBottom: 10}}>
             <View>
                 <LinearGradient
                 // Background Linear Gradient
@@ -42,6 +44,7 @@ export default function HomeScreen(){
             </View>
         
       </ScrollView>
+      </SafeAreaView>
     )
 
 }
@@ -50,6 +53,8 @@ function createStyles(theme, colorScheme) {
   return StyleSheet.create({
     container: {
         backgroundColor: theme.paperColor,
+
+
     },
     gradientCard:{
         borderRadius: 12,
