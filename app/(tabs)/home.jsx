@@ -1,5 +1,5 @@
 import { ThemeContext } from "@/context/ThemeContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { View, StyleSheet, ScrollView, Pressable } from "react-native";
 import { TextInput, Card, Text, RadioButton, Button, Divider, IconButton } from "react-native-paper";
 import {LinearGradient} from 'expo-linear-gradient';
@@ -10,14 +10,38 @@ import { useRouter } from 'expo-router';
 import { SafeAreaView } from "react-native-safe-area-context";
 
 
+
+
 export default function HomeScreen(){
     const { theme, colorScheme, setColorScheme } = useContext(ThemeContext);
     const styles = createStyles(theme , colorScheme);
     const router = useRouter();
+    const currentHour = new Date().getHours();
+    const [iconName , setIconName] = useState("sun");
+
+    useEffect(() => {
+        const currentHour = new Date().getHours();
+        if(currentHour >=6 && currentHour <= 18){
+            setIconName("sun");
+        }
+        else{
+            setIconName("moon");
+        }
+    },[]);
     return(
         <SafeAreaView style={{flex: 1,}}> 
         <ScrollView style={styles.container} contentContainerStyle={{paddingBottom: 10}}>
             <View>
+                <View style={{padding: 16,backgroundColor:theme.headerColor,flexDirection: 'row' , justifyContent: 'space-between' , alignItems: 'center'}}>
+                    <View>
+                        <Text variant="titleLarge" style= {{color: theme.textColor}}>Today</Text>
+                        <Text varient = "titleSmall" style= {{color: theme.textColor}}>Wednesday, August 6</Text>
+                    </View>
+                    <Feather name={iconName} size={24} color={theme.textColor} />
+
+
+                    
+                </View>
                 <LinearGradient
                 // Background Linear Gradient
                 colors={["#A259FF", "#3F87F5"]}
