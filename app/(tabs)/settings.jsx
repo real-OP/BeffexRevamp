@@ -6,6 +6,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import React, { useContext } from 'react';
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Card, Text } from 'react-native-paper';
+import CustomStatusBar from '@/components/statusbar';
 
 export default function SettingsScreen() {
   const { theme, colorScheme, setColorScheme } = useContext(ThemeContext);
@@ -18,6 +19,9 @@ export default function SettingsScreen() {
   };
 
   return (
+    <View>
+      <CustomStatusBar />
+  
     <ScrollView
       style={styles.container}
       contentContainerStyle={{
@@ -98,6 +102,7 @@ export default function SettingsScreen() {
         </Card>
       </View>
     </ScrollView>
+    </View>
   );
 }
 
