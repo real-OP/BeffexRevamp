@@ -7,13 +7,10 @@ export default function RootLayout() {
   return (
     <ThemeProvider>
       <SafeAreaProvider>
-        <StatusBar
-        backgroundColor="transparent"
-        barStyle="dark-content"
-        translucent = {true}
-        />
+        <StatusBar backgroundColor='black' barStyle='light-content' translucent={false}/>
+
         <Stack>
-          <Stack.Screen name="(tabs)" options={{headerShown: false}}  />
+          <Stack.Screen name="(tabs)" options={{headerShown: false}} />
         </Stack>
       </SafeAreaProvider>
     </ThemeProvider>
